@@ -401,7 +401,7 @@ Object.defineProperty(npm, "bin",
 Object.defineProperty(npm, "globalBin",
   { get : function () {
       var b = npm.globalPrefix
-      if (process.platform !== "win32") b = path.resolve(b, "bin")
+      b = path.resolve(b, "bin")
       return b
     }
   })
@@ -416,9 +416,7 @@ Object.defineProperty(npm, "dir",
 
 Object.defineProperty(npm, "globalDir",
   { get : function () {
-      return (process.platform !== "win32")
-           ? path.resolve(npm.globalPrefix, "lib", "node_modules")
-           : path.resolve(npm.globalPrefix, "node_modules")
+        return path.resolve(npm.globalPrefix, "lib", "node_modules")
     }
   , enumerable : true
   })
